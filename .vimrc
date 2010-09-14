@@ -30,6 +30,7 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 nmap <silent> ,/ :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
+map <F8> Oimport pdb; pdb.set_trace()<Esc>
 
 let @h = "yypVr"
 
