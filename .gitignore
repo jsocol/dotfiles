@@ -1,0 +1,4 @@
+.achievements
+*.pyc
+*.swp
+nosetests.xml
