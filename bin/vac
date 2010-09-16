@@ -1,0 +1,3 @@
+#!/bin/bash
+# Vacuum out .pyc files.
+find . -name "*.pyc" -type f -exec rm {} \;

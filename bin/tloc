@@ -1,0 +1,9 @@
+#!/bin/bash
+# recursive lines of code count
+total=0
+for currfile in `find $PWD -name "*.py" -print`
+do
+        total=$[total+(`wc -l $currfile| awk '{print $1}'`)]
+        echo 'total=' $total
+done
+

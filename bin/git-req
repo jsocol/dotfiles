@@ -1,0 +1,64 @@
+#!/bin/bash
+# allows you to send pull requests from the command line
+# usage: git req username [comparetobranch]
+#    or: git req username -m 'message'
+# put somewhere in your PATH as git-req and make executable
+
+usage()
+{
+cat << EOF
+usage: $0 options
+
+Sends a pull request via github
+
+OPTIONS:
+    -h      Show this message
+    -f      Force a pull request
+EOF
+}
+
+FORCE=
+
+while getopts "hf" OPTION
+do
+    case $OPTION in
+        h) usage; exit;;
+        f) FORCE=1;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+GITUNCOMMITTED=$(git status | sed -n 2p) && GITUNCOMMITTED=${GITUNCOMMITTED:0:7}
+if [ "$GITUNCOMMITTED" != 'nothing' -a -z "$FORCE" ]
+then
+    echo -ne 'Error: Woah, woah, woah. There are uncommitted changes!\n'
+    exit $?
+fi
+GITBRANCH=$(git symbolic-ref HEAD | cut -d/ -f3)
+GITUNPUSHED=$(git log origin/$GITBRANCH..$GITBRANCH --pretty=oneline --abbrev-commit)
+if [ "$GITUNPUSHED" != '' -a -z "$FORCE" ]
+then
+    echo -ne 'Error: Push your changes!\n'
+    exit $?
+fi
+GITUSER=$(git config github.user)
+GITPROJECT=$(grep 'url =' .git/config | sed -n 1p | sed -e 's/.*url = git@github.com:'$GITUSER'.*[/]\(.*\).git$/\1/')
+GITTOKEN=$(git config github.token)
+if [ $(echo "${#2}") != '0' ]
+then
+	if [ "$2" != '-m' ]
+	then
+		GITCOMPR="http://github.com/$GITUSER/$GITPROJECT/compare/$2...$GITBRANCH"
+	else
+		GITCOMPR=$3
+	fi
+else
+	GITCOMPR=''
+fi
+GITPULLREQ=$(curl -Flogin=$GITUSER -Ftoken=$GITTOKEN -Fmessage[to][]=$1 -Fmessage[body]="$GITCOMPR" "http://github.com/$GITUSER/$GITPROJECT/pull_request/$GITBRANCH" 2> /dev/null | sed -e 's/.*You are.*/OK/')
+if [ $GITPULLREQ != 'OK' ]
+then
+	echo -ne 'Could not complete pull request.\n'
+else
+	echo -ne 'Pull request sent to '$1'.\n'
+fi

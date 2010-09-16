@@ -1,0 +1,9 @@
+#!/bin/sh
+# Import a gzipped SQL dump into a specified database through pipeviewer.
+
+if [ $# -lt 2 ]; then
+    echo "USAGE: $0 <filename> <database>"
+    exit 1
+fi
+
+pv -cN source < $1 | gunzip | pv -cN gunzip | mysql $2

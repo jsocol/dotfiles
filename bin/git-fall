@@ -1,0 +1,8 @@
+#!/bin/bash
+# Fetch and prune all remotes.
+
+for r in `git remote`
+do
+    git remote prune $r
+    git fetch $r
+done

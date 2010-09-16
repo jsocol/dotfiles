@@ -1,0 +1,4 @@
+#!/bin/sh
+ROOT='http://github.com/jsocol/kitsune/compare/development...'
+URL=$ROOT$(git here)
+echo $URL
