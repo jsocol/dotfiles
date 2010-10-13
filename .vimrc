@@ -6,6 +6,7 @@ set smarttab
 set sts=4
 set smartindent
 set textwidth=80
+set formatoptions=cqwr
 set nowrap
 set number
 set showmatch
@@ -36,4 +37,4 @@ let @h = "yypVr"
 
 autocmd BufNewFile,BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
-autocmd BufWritePre *.py normal m`:%s/\s\+$//e`
+autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
