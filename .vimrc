@@ -5,7 +5,7 @@ set shiftwidth=4
 set smarttab
 set sts=4
 set smartindent
-set textwidth=80
+set textwidth=800000
 set formatoptions=cqwr
 set nowrap
 set number
@@ -32,9 +32,12 @@ map <C-K> <C-W>k<C-W>_
 nmap <silent> ,/ :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <F8> Oimport pdb; pdb.set_trace()<Esc>
+inoremap # X<BS>#
 
 let @h = "yypVr"
 
-autocmd BufNewFile,BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
+autocmd BufNewFile,BufRead *.rst set tw=79
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+"autocmd BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif

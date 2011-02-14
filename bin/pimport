@@ -1,9 +1,18 @@
 #!/bin/sh
-# Import a gzipped SQL dump into a specified database through pipeviewer.
+# Import a (g|b)zipped SQL dump into a specified database through pipeviewer.
 
 if [ $# -lt 2 ]; then
     echo "USAGE: $0 <filename> <database>"
     exit 1
 fi
 
-pv -cN source < $1 | gunzip | pv -cN gunzip | mysql $2
+EXT=${1/*./}
+echo $EXT
+
+if [ "$EXT" == "gz" ]; then
+    pv -cN source < $1 | gunzip | pv -cN gunzip | mysql $2
+elif [ "$EXT" == "bz2" ]; then
+    pv -cN source < $1 | bunzip2 | pv -cN bunzip2 | mysql $2
+else
+    echo "File must be .sql.bz2 or .sql.gz"
+fi
