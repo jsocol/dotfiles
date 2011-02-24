@@ -33,6 +33,7 @@ nmap <silent> ,/ :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <F8> Oimport pdb; pdb.set_trace()<Esc>
 inoremap # X<BS>#
+nnoremap <F5> :GundoToggle<CR>
 
 let @h = "yypVr"
 
