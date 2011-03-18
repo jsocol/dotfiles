@@ -23,13 +23,16 @@ from wphp import PHPApp
 
 application = PHPApp(os.getcwd())
 
+host = '0.0.0.0'
+port = 8000
+
 if len(sys.argv) > 1:
     port = sys.argv[1]
-else:
-    port = 8000
+    if ':' in port:
+        host, _, port = port.partition(':')
 
 try:
-    httpserver.serve(application, host='0.0.0.0', port=port,
+    httpserver.serve(application, host=host, port=port,
                      daemon_threads=True)
 except KeyboardInterrupt:
     application.close()

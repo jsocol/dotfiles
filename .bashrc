@@ -9,7 +9,9 @@ export PATH=$PATH:~/bin:/usr/sbin:/sbin
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 
-#. ~/.virtualenvwrapper
+if [ -f ~/.virtualenvwrapper ]; then
+    . ~/.virtualenvwrapper
+fi
 
 . /etc/bash_completion.d/git
 . /etc/bash_completion.d/subversion
