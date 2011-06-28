@@ -3,3 +3,4 @@
 *.swp
 nosetests.xml
 .noseids
+email_settings.py

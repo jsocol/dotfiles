@@ -16,12 +16,15 @@ set incsearch
 set autoread
 set title
 set noerrorbells
+set lz
+set t_Co=256
 
 set history=1000
 set undolevels=1000
 set wildignore=*.pyc,*.swp,*.class,*.bak
 
 set pastetoggle=<F2>
+hi ColorColumn ctermbg=darkblue
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -37,8 +40,8 @@ nnoremap <F5> :GundoToggle<CR>
 
 let @h = "yypVr"
 
-autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
 autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
-autocmd BufNewFile,BufRead *.rst set tw=79
+autocmd BufNewFile,BufRead *.rst set tw=79 cc=+1
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 "autocmd BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif
