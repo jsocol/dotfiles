@@ -24,7 +24,9 @@ set undolevels=1000
 set wildignore=*.pyc,*.swp,*.class,*.bak
 
 set pastetoggle=<F2>
+
 hi ColorColumn ctermbg=darkblue
+hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
