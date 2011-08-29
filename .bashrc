@@ -5,7 +5,7 @@ fi
 export WORKON_HOME=~/.virtualenvs
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 export PS1='[\u $(__git_ps1 "(\033[34m%s\033[0m) ")\W]$ '
-export PATH=$PATH:~/bin:/usr/sbin:/sbin
+export PATH=$PATH:~/bin:/usr/sbin:/sbin:~/.rbenv/bin
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 

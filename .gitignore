@@ -4,3 +4,7 @@
 nosetests.xml
 .noseids
 email_settings.py
+.ipython/db
+.ipython/history
+.ipython/.upgrade_report
+history.*
