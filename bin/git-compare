@@ -1,0 +1,4 @@
+#!/bin/bash
+
+BRANCH=$(git here)
+echo "https://github.com/jsocol/kitsune/compare/$BRANCH"
