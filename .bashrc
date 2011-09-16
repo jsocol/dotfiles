@@ -9,8 +9,9 @@ export PATH=$PATH:~/bin:/usr/sbin:/sbin:~/.rbenv/bin
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 
-if [ -f ~/.virtualenvwrapper ]; then
-    . ~/.virtualenvwrapper
+VEW=`which virtualenvwrapper.sh`
+if [ -f "$VEW" ]; then
+    . $VEW
 fi
 
 . /etc/bash_completion.d/git
