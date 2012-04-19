@@ -1,4 +1,5 @@
 #!/bin/bash
 
+REPO=$(basename `pwd`)
 BRANCH=$(git here)
-echo "https://github.com/jsocol/kitsune/compare/$BRANCH"
+echo "https://github.com/jsocol/$REPO/compare/$BRANCH"
