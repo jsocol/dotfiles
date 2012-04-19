@@ -11,6 +11,7 @@ set nowrap
 set number
 set showmatch
 set ignorecase
+set smartcase
 set hlsearch
 set incsearch
 set autoread
@@ -37,6 +38,7 @@ map <C-K> <C-W>k<C-W>_
 nmap <silent> ,/ :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <F8> Oimport pdb; pdb.set_trace()<Esc>
+inoremap <C-s> <Esc>w !sendmail -t<CR>
 inoremap # X<BS>#
 nnoremap <F5> :GundoToggle<CR>
 
@@ -46,4 +48,4 @@ autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,f
 autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
 autocmd BufNewFile,BufRead *.rst set tw=79 cc=+1
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
-"autocmd BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif
+"au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
