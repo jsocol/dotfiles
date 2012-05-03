@@ -48,4 +48,9 @@ autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,f
 autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
 autocmd BufNewFile,BufRead *.rst set tw=79 cc=+1
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+
+" Someday, make one of these work.
 "au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
+"autocmd BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif
+
+let g:maintainer='{ "name": "James Socol", "web": "http://coffeeonthekeyboard.com", "email": "james@mozilla.com" }'

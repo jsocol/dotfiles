@@ -1,0 +1,3 @@
+#!/bin/bash
+
+printf "\033]0;(%s) %s\033\\" "${USER}" "${PWD/#$HOME/~}"

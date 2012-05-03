@@ -1,1 +1,1 @@
-alias i from IPython.Shell import IPShellEmbed as IPSh; IPSh(argv='')()
+alias i from IPython import embed; embed()

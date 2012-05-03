@@ -30,3 +30,14 @@ complete -o default -F _pip_completion pip
 if [ -f ~/.aliasrc ]; then
     . ~/.aliasrc
 fi
+
+if [ "$PS1" ]; then
+    case $TERM in
+    xterm*)
+        PROMPT_COMMAND='printf "\033]0;(%s) %s\007" "${USER}" "${PWD/#$HOME/~}"'
+        ;;
+    screen)
+        PROMPT_COMMAND='printf "\033]0;(%s) %s\033\\" "${USER}" "${PWD/#$HOME/~}"'
+        ;;
+    esac
+fi
