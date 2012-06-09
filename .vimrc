@@ -5,8 +5,8 @@ set shiftwidth=4
 set smarttab
 set sts=4
 set smartindent
-set textwidth=800000
-set formatoptions=cqwr
+set textwidth=72
+set formatoptions=tcqrowa
 set nowrap
 set number
 set showmatch
@@ -19,6 +19,7 @@ set title
 set noerrorbells
 set lz
 set t_Co=256
+set hidden
 
 set history=1000
 set undolevels=1000
@@ -35,6 +36,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
+map <C-b> <Esc>:tabnew<CR><Esc>
+map <C-n> <Esc>:tabn<CR><Esc>
+map <C-m> <Esc>:tabp<CR><Esc>
 nmap <silent> ,/ :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <F8> Oimport pdb; pdb.set_trace()<Esc>
@@ -45,7 +49,7 @@ nnoremap <F5> :GundoToggle<CR>
 let @h = "yypVr"
 
 autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
-autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2
+autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2 tw=1000
 autocmd BufNewFile,BufRead *.rst set tw=79 cc=+1
 autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
