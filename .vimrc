@@ -6,7 +6,7 @@ set smarttab
 set sts=4
 set smartindent
 set textwidth=72
-set formatoptions=tcqrowa
+set formatoptions=tcqroa
 set nowrap
 set number
 set showmatch
@@ -48,10 +48,12 @@ nnoremap <F5> :GundoToggle<CR>
 
 let @h = "yypVr"
 
-autocmd BufNewFile,BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
-autocmd BufNewFile,BufRead *.html set sts=2 sw=2 ts=2 tw=1000
-autocmd BufNewFile,BufRead *.rst set tw=79 cc=+1
-autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+autocmd BufNewFile,BufRead *.py setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
+autocmd BufNewFile,BufRead *.html setlocal sts=2 sw=2 ts=2 tw=1000
+autocmd BufNewFile,BufRead *.rst setlocal tw=79 cc=+1
+autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1
+autocmd BufWritePost ~/.vimrc   so ~/.vimrc
+autocmd BufWrite *.py,*.js,*.html,*.php mark ' | silent! %s/\s\+$// | norm ''
 
 " Someday, make one of these work.
 "au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
