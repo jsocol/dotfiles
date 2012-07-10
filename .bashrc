@@ -41,3 +41,6 @@ if [ "$PS1" ]; then
         ;;
     esac
 fi
+
+# Stop that.
+unset command_not_found_handle
