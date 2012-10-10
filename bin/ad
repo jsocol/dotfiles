@@ -1,0 +1,7 @@
+#!/bin/bash
+echo $1
+if [ -z "$1" ]; then
+    popd > /dev/null
+else
+    pushd "$1" > /dev/null
+fi

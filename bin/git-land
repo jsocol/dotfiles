@@ -1,0 +1,19 @@
+#!/bin/bash
+
+WHERE=$1
+if [ -z "$HERE" ]; then
+    WHERE="master"
+fi
+
+HERE=`git here`
+
+echo "Landing $HERE on $WHERE."
+
+git co $HERE
+git rebase $WHERE
+git co $WHERE
+git merge $HERE
+
+SHA=`git rev-parse HEAD`
+
+echo "https://github.com/jsocol/kitsune/commit/${SHA:0:10}"

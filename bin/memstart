@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PORT=$1
+
+if [ -z "$PORT" ]; then
+    PORT=11212
+fi
+
+echo $PORT
+
+MEMCACHED=`which memcached`
+$MEMCACHED -d -p $PORT -u memcached -m 64 -c 1024 -P /tmp/memcached.pid
