@@ -50,7 +50,8 @@ let @h = "yypVr"
 
 autocmd BufNewFile,BufRead *.py setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
 autocmd BufNewFile,BufRead *.html setlocal sts=2 sw=2 ts=2 tw=1000
-autocmd BufNewFile,BufRead *.rst,*.md setlocal tw=79 cc=+1
+autocmd BufNewFile,BufRead *.rst,*.md,*.markdown setlocal tw=72 cc=+1
+autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1
 autocmd BufWritePost ~/.vimrc   so ~/.vimrc
 autocmd BufWrite *.py,*.js,*.html,*.php mark ' | silent! %s/\s\+$// | norm ''
