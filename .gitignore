@@ -8,3 +8,6 @@ email_settings.py
 .ipython/history
 .ipython/.upgrade_report
 history.*
+.ssh
+.bash_history
+.gitconfig
