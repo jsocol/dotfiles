@@ -14,8 +14,12 @@ if [ -f "$VEW" ]; then
     . $VEW
 fi
 
-. /etc/bash_completion.d/git
-. /etc/bash_completion.d/subversion
+if [ -f /etc/bash_completion.d/git ]; then
+    . /etc/bash_completion.d/git
+fi
+if [ -f /etc/bash_completion.d/subversion ]; then
+    . /etc/bash_completion.d/subversion
+fi
 
 # pip bash completion start
 _pip_completion()
