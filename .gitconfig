@@ -1,0 +1,25 @@
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    grep = auto
+[core]
+    excludesfile = /home/james/.gitignore
+[alias]
+    a = add
+    ci = commit
+    co = checkout
+    br = branch
+    st = status
+    undo = checkout --
+    gr = grep --color -p -n --full-name
+    cp = cherry-pick
+    cdiff = log -p -1 --stat
+    cpp = !sh -c "git log -p -1 $1 "
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    p = log -1 -p
+[user]
+    name = James Socol
+    email = me@jamessocol.com
+[github]
+    username = jsocol
