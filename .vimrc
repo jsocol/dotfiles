@@ -1,3 +1,4 @@
+set nocompatible
 set tabstop=4
 set expandtab
 set autoindent
@@ -28,6 +29,7 @@ set wildignore=*.pyc,*.swp,*.class,*.bak
 set pastetoggle=<F2>
 
 hi ColorColumn ctermbg=darkblue
+hi Comment ctermbg=blue ctermfg=white
 hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
 
 map <C-h> <C-w>h
@@ -53,7 +55,7 @@ autocmd BufNewFile,BufRead *.html setlocal sts=2 sw=2 ts=2 tw=1000
 autocmd BufNewFile,BufRead *.rst,*.md,*.markdown setlocal tw=72 cc=+1
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1
-autocmd BufWritePost ~/.vimrc   so ~/.vimrc
+autocmd BufWritePost ~/.vimrc so ~/.vimrc
 autocmd BufWrite *.py,*.js,*.html,*.php mark ' | silent! %s/\s\+$// | norm ''
 
 " Someday, make one of these work.

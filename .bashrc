@@ -4,7 +4,8 @@ fi
 
 export WORKON_HOME=~/.virtualenvs
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
-export PS1='[\u $(__git_ps1 "(\033[34m%s\033[0m) ")\W]$ '
+#export PS1='[\u $(__git_ps1 "(\033[34m%s\033[0m) ")\W]$ '
+export PS1='[\@] \[\033[1;32m\]\u\[\033[1;36m\] \w\[\033[00m\]:\[\033[0;33m\]$(__git_ps1 "(%s)")\[\033[00m\]\n$ '
 export PATH=$PATH:~/bin:/usr/sbin:/sbin:~/.rbenv/bin
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
