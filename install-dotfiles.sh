@@ -14,6 +14,6 @@ mv .pdbrc ~/
 mv .vimrc ~/
 mv README.rst ~/
 
-PWD=`pwd`
+OWD=`pwd`
 pushd ~
-rm -rf $PWD
+rm -rf $OWD
