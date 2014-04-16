@@ -18,6 +18,9 @@ fi
 if [ -f /etc/bash_completion.d/git ]; then
     . /etc/bash_completion.d/git
 fi
+if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
+    . /usr/share/git-core/contrib/completion/git-prompt.sh
+fi
 if [ -f /etc/bash_completion.d/subversion ]; then
     . /etc/bash_completion.d/subversion
 fi

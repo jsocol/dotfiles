@@ -23,3 +23,7 @@
     email = me@jamessocol.com
 [github]
     username = jsocol
+[push]
+	default = upstream
+[pull]
+	rebase = true
