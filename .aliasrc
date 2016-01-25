@@ -1,10 +1,6 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias l.='ls -d .* --color=auto'
-alias lh='ls -lh --color=auto'
-alias ll='ls -l --color=auto'
-alias ls='ls --color=auto'
 alias check='check.py'
 alias df='df -h'
 alias diff='diff -u'
@@ -17,7 +13,7 @@ alias phpunit='phpunit --colors'
 alias su='sudo su'
 alias t='python manage.py test -s --logging-clear-handlers --noinput'
 alias vi='vim'
-alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+#alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 alias schematic='python ./vendor/src/schematic/schematic'
 alias yinst='sudo yum install -y'
 alias yum='sudo yum'
@@ -27,3 +23,17 @@ alias gss='git submodule sync'
 alias gsu='git submodule update --init --recursive'
 alias json='python -m json.tool'
 alias em='python ./manage.py extract && python ./manage.py merge'
+
+ls --color=auth >/dev/null 2>&1
+LINUX=$?
+if [ $LINUX -eq 0 ]; then
+    alias l.='ls -d .* --color=auto'
+    alias lh='ls -lh --color=auto'
+    alias ll='ls -l --color=auto'
+    alias ls='ls --color=auto'
+else
+    alias l.='ls -d .* -G'
+    alias lh='ls -lh -G'
+    alias ll='ls -l -G'
+    alias ls='ls -G'
+fi

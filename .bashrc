@@ -20,6 +20,10 @@ if [ -f /etc/bash_completion.d/git ]; then
 fi
 if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
     . /usr/share/git-core/contrib/completion/git-prompt.sh
+else
+    if [ -f ~/.git-prompt.sh ]; then
+        . ~/.git-prompt.sh
+    fi
 fi
 if [ -f /etc/bash_completion.d/subversion ]; then
     . /etc/bash_completion.d/subversion
