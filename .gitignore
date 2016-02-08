@@ -10,3 +10,7 @@ email_settings.py
 history.*
 .ssh
 .bash_history
+.envrc
+.nvmrc
+.nvm
+.npm

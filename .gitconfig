@@ -4,14 +4,14 @@
     branch = auto
     grep = auto
 [core]
-    excludesfile = /home/james/.gitignore
+    excludesfile = /Users/jsocol/.gitignore
 [alias]
     a = add
     ci = commit
     co = checkout
     br = branch
     st = status
-    undo = checkout --
+    u = checkout --
     gr = grep --color -p -n --full-name
     cp = cherry-pick
     cdiff = log -p -1 --stat
@@ -20,7 +20,7 @@
     p = log -1 -p
 [user]
     name = James Socol
-    email = me@jamessocol.com
+	email = James_Socol@condenast.com
 [github]
     username = jsocol
 [push]

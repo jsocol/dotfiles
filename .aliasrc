@@ -2,6 +2,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias check='check.py'
+alias d='git diff'
 alias df='df -h'
 alias diff='diff -u'
 alias dj='python manage.py'
@@ -37,3 +38,5 @@ else
     alias ll='ls -l -G'
     alias ls='ls -G'
 fi
+alias ipython3='~/.virtualenvs/py3k/bin/ipython'
+alias gulp='./node_modules/.bin/gulp'

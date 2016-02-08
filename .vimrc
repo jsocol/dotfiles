@@ -42,7 +42,7 @@ map <C-K> <C-W>k<C-W>_
 map <C-b> <Esc>:tabnew<CR><Esc>
 map <C-n> <Esc>:tabn<CR><Esc>
 map <C-m> <Esc>:tabp<CR><Esc>
-nmap <silent> ,/ :let @/=""<CR>
+nmap <silent> c :let @/=""<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <F8> Oimport pdb; pdb.set_trace()<Esc>
 inoremap <C-s> <Esc>w !sendmail -t<CR>
@@ -52,7 +52,8 @@ nnoremap <F5> :GundoToggle<CR>
 let @h = "yypVr"
 
 autocmd BufNewFile,BufRead *.py setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
-autocmd BufNewFile,BufRead *.html setlocal sts=2 sw=2 ts=2 tw=1000
+autocmd BufNewFile,BufRead *.html,*.js,*.jsx,*.json setlocal sts=2 sw=2 ts=2 tw=1000
+autocmd BufNewFile,BufRead *.json setf javascript
 autocmd BufNewFile,BufRead *.rst,*.md,*.markdown setlocal tw=72 cc=+1
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1

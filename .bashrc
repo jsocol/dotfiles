@@ -9,24 +9,19 @@ export PS1='[\@] \[\033[1;32m\]\u@$(hostname -s)\[\033[1;36m\] \w\[\033[00m\] \[
 export PATH=$PATH:~/bin:/usr/sbin:/sbin:~/.rbenv/bin
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
+export HISTCONTROL=ignoreboth:erasedups
 
 VEW=`which virtualenvwrapper.sh`
 if [ -f "$VEW" ]; then
     . $VEW
 fi
 
-if [ -f /etc/bash_completion.d/git ]; then
-    . /etc/bash_completion.d/git
-fi
-if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
-    . /usr/share/git-core/contrib/completion/git-prompt.sh
-else
-    if [ -f ~/.git-prompt.sh ]; then
-        . ~/.git-prompt.sh
-    fi
-fi
-if [ -f /etc/bash_completion.d/subversion ]; then
-    . /etc/bash_completion.d/subversion
+source /usr/local/opt/git/etc/bash_completion.d/git-completion.bash
+source /usr/local/opt/git/etc/bash_completion.d/git-prompt.sh
+
+if [ -d ~/.nvm -a $? -eq 0 ]; then
+    export NVM_DIR=~/.nvm
+    . $(brew --prefix nvm)/nvm.sh
 fi
 
 # pip bash completion start
@@ -56,3 +51,13 @@ fi
 
 # Stop that.
 unset command_not_found_handle
+eval "$(direnv hook bash)"
+
+# Load rbenv automatically by appending
+# the following to ~/.bash_profile:
+
+export RBENV_VERSION=2.3.0
+
+eval "$(rbenv init -)"
+
+ulimit -n 4096
