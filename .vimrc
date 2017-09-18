@@ -22,6 +22,7 @@ set noerrorbells
 set lz
 set t_Co=256
 set hidden
+set backspace=2
 
 set history=1000
 set undolevels=1000
@@ -33,10 +34,6 @@ hi ColorColumn ctermbg=darkblue
 hi Comment ctermbg=blue ctermfg=white
 hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 map <C-b> <Esc>:tabnew<CR><Esc>
@@ -48,6 +45,8 @@ map <F8> Oimport pdb; pdb.set_trace()<Esc>
 inoremap <C-s> <Esc>w !sendmail -t<CR>
 inoremap # X<BS>#
 nnoremap <F5> :GundoToggle<CR>
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 
 let @h = "yypVr"
 
@@ -60,8 +59,19 @@ autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1
 autocmd BufWritePost ~/.vimrc so ~/.vimrc
 autocmd BufWrite *.py,*.js,*.html,*.php mark ' | silent! %s/\s\+$// | norm ''
 
-" Someday, make one of these work.
-"au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod a+x <afile> | endif | endif
-"autocmd BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif
+call plug#begin('~/.vim/plugged')
 
-let g:maintainer='{ "name": "James Socol", "web": "http://coffeeonthekeyboard.com", "email": "james@mozilla.com" }'
+Plug 'w0rp/ale'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'ajmwagar/vim-deus'
+Plug 'iKarith/tigrana'
+Plug 'jmcantrell/vim-virtualenv'
+
+call plug#end()
+
+set background=dark
+colorscheme deus
+
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
