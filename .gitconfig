@@ -4,22 +4,25 @@
     branch = auto
     grep = auto
 [core]
-    excludesfile = /Users/jsocol/.gitignore
+    excludesfile = /Users/james/.gitignore
 [alias]
     a = add
+    br = branch
+    cdiff = log -p -1 --stat
     ci = commit
     co = checkout
-    br = branch
+    cp = cherry-pick
+    cpp = !sh -c "git log -p -1 $1 "
+    d = diff
+    fixup = commit --amend --no-edit
+    gr = grep --color -p -n --full-name
+    lg = log --graph --pretty=format:'%Cred%h%Creset %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    mg = merge --no-ff --no-edit
+    p = log -1 -p
     st = status
     u = checkout --
-    gr = grep --color -p -n --full-name
-    cp = cherry-pick
-    cdiff = log -p -1 --stat
-    cpp = !sh -c "git log -p -1 $1 "
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    p = log -1 -p
 [user]
-    name = James Socol
+	name = James Socol
 	email = James_Socol@condenast.com
 [github]
     username = jsocol
