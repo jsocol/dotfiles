@@ -10,3 +10,4 @@ email_settings.py
 history.*
 .ssh
 .bash_history
+.DS_Store

@@ -11,15 +11,20 @@
     co = checkout
     br = branch
     st = status
-    undo = checkout --
+    u = checkout --
     gr = grep --color -p -n --full-name
+    mg = merge --no-ff --no-edit
     cp = cherry-pick
     cdiff = log -p -1 --stat
     cpp = !sh -c "git log -p -1 $1 "
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     p = log -1 -p
+	fixup = commit --amend --no-edit
 [user]
     name = James Socol
     email = me@jamessocol.com
+	signingKey = 9EBFCF1D
 [github]
     username = jsocol
+[push]
+	default = upstream

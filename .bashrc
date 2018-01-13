@@ -6,7 +6,7 @@ export WORKON_HOME=~/.virtualenvs
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 #export PS1='[\u $(__git_ps1 "(\033[34m%s\033[0m) ")\W]$ '
 export PS1='[\@] \[\033[1;32m\]\u@$(hostname -s)\[\033[1;36m\] \w\[\033[00m\] \[\033[0;33m\]$(__git_ps1 "(%s)")\[\033[00m\]\n$ '
-export PATH=$PATH:~/bin:/usr/sbin:/sbin:~/.rbenv/bin
+export PATH=~/bin:~/Library/Python/2.7/bin/:/usr/sbin:/sbin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export EDITOR=vim
 export PIP_DOWNLOAD_CACHE=~/.pip-cache
 
@@ -15,12 +15,8 @@ if [ -f "$VEW" ]; then
     . $VEW
 fi
 
-if [ -f /etc/bash_completion.d/git ]; then
-    . /etc/bash_completion.d/git
-fi
-if [ -f /etc/bash_completion.d/subversion ]; then
-    . /etc/bash_completion.d/subversion
-fi
+. ~/.git-completion.bash
+. ~/.git-prompt.sh
 
 # pip bash completion start
 _pip_completion()
@@ -48,4 +44,9 @@ if [ "$PS1" ]; then
 fi
 
 # Stop that.
-unset command_not_found_handle
+#unset command_not_found_handle
+export HISTCONTROL=ignoredups
+export FIGNORE=$FIGNORE:.pyc:.pyo
+
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa
