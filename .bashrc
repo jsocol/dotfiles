@@ -11,6 +11,7 @@ fi
 
 export GIT_PS1_SHOWDIRTYSTATE=yes
 export GIT_PS1_SHOWUPSTREAM="auto"
+export GIT_PS1_SHOWSTASHSTATE=yes
 
 source "$BREW_PREFIX/etc/bash_completion.d/git-completion.bash"
 source "$BREW_PREFIX/etc/bash_completion.d/git-prompt.sh"
@@ -41,12 +42,12 @@ fi
 unset command_not_found_handle
 eval "$(direnv hook bash)"
 
-# Load rbenv automatically by appending
-# the following to ~/.bash_profile:
-
-export RBENV_VERSION=2.3.0
-
-eval "$(rbenv init -)"
+# # Load rbenv automatically by appending
+# # the following to ~/.bash_profile:
+# 
+# export RBENV_VERSION=2.3.0
+# 
+# eval "$(rbenv init -)"
 
 ulimit -n 4096
 
@@ -72,3 +73,8 @@ export GOPATH=~/code/go
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+export NVM_DIR="$HOME/.nvm"
+if [ -f "$BREW_PREFIX/opt/nvm/nvm.sh" ]; then
+    source "$BREW_PREFIX/opt/nvm/nvm.sh"
+fi

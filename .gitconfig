@@ -30,3 +30,5 @@
 	default = upstream
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
