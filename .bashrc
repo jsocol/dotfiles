@@ -2,11 +2,11 @@ if [ -f /etc/bashrc ]; then
     source /etc/bashrc
 fi
 
-BREW_PREFIX=$(brew --prefix)
-BASH_COMPLETION=$BREW_PREFIX/etc/bash_completion
+export BREW_PREFIX=$(brew --prefix)
+BASH_COMPLETION="$BREW_PREFIX/etc/bash_completion"
 # shellcheck source=/dev/null
 if [ -f "$BASH_COMPLETION" ]; then
-  . "$BASH_COMPLETION"
+  source "$BASH_COMPLETION"
 fi
 
 export GIT_PS1_SHOWDIRTYSTATE=yes
