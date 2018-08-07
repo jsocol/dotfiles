@@ -14,3 +14,4 @@ history.*
 .nvmrc
 .nvm
 .npm
+.npmrc
