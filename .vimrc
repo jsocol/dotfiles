@@ -67,6 +67,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'ajmwagar/vim-deus'
 Plug 'iKarith/tigrana'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jparise/vim-graphql'
+Plug 'uarun/vim-protobuf'
+Plug 'ngmy/vim-rubocop'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
