@@ -30,6 +30,10 @@ set wildignore=*.pyc,*.swp,*.class,*.bak
 
 set pastetoggle=<F2>
 
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 "hi ColorColumn ctermbg=darkblue
 "hi Comment ctermbg=blue ctermfg=white cterm=italic
 "hi Search term=standout ctermfg=0 ctermbg=11 guifg=Blue guibg=Yellow
@@ -76,8 +80,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 set background=dark
+let g:onedark_terminal_italics = 1
 colorscheme onedark
-hi Comment cterm=italic
+" hi Comment cterm=italic
 
 let mapleader=";"
 
@@ -120,8 +125,11 @@ call ale#linter#Define('typescriptreact', {
 \})
 
 "autocmd filetype go inoremap <buffer> . .<C-x><C-o>
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(0) : "\<C-n>"
+inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
+
+hi CocMenuSel ctermbg=109 guibg=#13354A
 
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -139,7 +147,7 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
 " move between buffers in the current window
-map <C-n> <Esc>:bn<CR><Esc>
+map <C-M> <Esc>:bn<CR><Esc>
 map <C-m> <Esc>:bp<CR><Esc>
 
 " clear the search terms
@@ -171,5 +179,4 @@ nmap <leader>rf <Plug>(coc-refactor)
 " Snippets
 au FileType go nmap <leader>ge <Plug>(go-iferr)
 
-" an ancient helper I use to make ReST headings
 let @h = "yypVr"
