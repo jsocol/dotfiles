@@ -21,9 +21,10 @@
     p = log -1 -p
     st = status
     u = checkout --
+    sw = switch
 [user]
 	name = James Socol
-	email = James_Socol@condenast.com
+	email = me@jamessocol.com
 [github]
     username = jsocol
 [push]
@@ -32,3 +33,13 @@
 	rebase = true
 [rebase]
 	autoStash = true
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+	insteadof = https://github.com/
+[remote "origin"]
+	prune = true
+[branch]
+	sort = -committerdate
+[tag]
+	sort = -version:refname
