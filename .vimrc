@@ -28,6 +28,9 @@ set history=1000
 set undolevels=1000
 set wildignore=*.pyc,*.swp,*.class,*.bak
 
+set exrc
+set secure
+
 set pastetoggle=<F2>
 
 if (has("termguicolors"))
@@ -40,6 +43,7 @@ endif
 
 autocmd BufNewFile,BufRead *.py setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class,with tw=79 cc=+1
 autocmd BufNewFile,BufRead *.html,*.js,*.jsx,*.json,*.ts,*.tsx setlocal sts=2 sw=2 ts=2 tw=1000
+autocmd BufNewFile,BufRead *.html.gotpl filetype=gohtmltmpl
 autocmd BufNewFile,BufRead *.rst,*.md,*.markdown setlocal tw=72 cc=+1
 autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 autocmd BufNewFile,BufRead .git/COMMIT_EDITMSG setlocal tw=72 cc=+1
@@ -77,8 +81,11 @@ Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'jparise/vim-graphql'
 Plug 'uarun/vim-protobuf'
-Plug 'ngmy/vim-rubocop'
+Plug 'jjo/vim-cue'
+"Plug 'ngmy/vim-rubocop'
+Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -110,12 +117,26 @@ let g:ale_fixers = {
             \ 'javascript': ['eslint'],
             \ 'typescript': ['eslint'],
             \ 'typescriptreact': ['eslint'],
+            \ 'ruby': ['standardrb'],
             \}
 let g:ale_linters = {
             \ 'typescript': ['tsserver', 'eslint'],
             \ 'typescriptreact': ['tsserver', 'eslint'],
+            \ 'ruby': ['standardrb'],
             \}
 let g:ale_fix_on_save = 1
+
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 0
+let g:ruby_operators = 1
+let g:ruby_pseudo_oeprators = 1
+let g:ruby_space_errors = 1
+" let g:ruby_fold = 1
+let g:rubycomplete_classes_in_global = 1
+
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
 
 call ale#linter#Define('typescriptreact', {
 \   'name': 'tsserver',
@@ -185,3 +206,4 @@ nmap <leader>rf <Plug>(coc-refactor)
 au FileType go nmap <leader>ge <Plug>(go-iferr)
 
 let @h = "yypVr"
+"let @q = "ysiw"
