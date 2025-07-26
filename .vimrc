@@ -58,10 +58,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'jiangmiao/auto-pairs'
-"Plug 'Townk/vim-autoclose'
+Plug 'editorconfig/editorconfig-vim'
 
 " Colorschemes
 Plug 'ajmwagar/vim-deus'
@@ -74,6 +71,9 @@ Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim' " needed for previews
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 " language support
 Plug 'jmcantrell/vim-virtualenv'
@@ -82,6 +82,7 @@ Plug 'Quramy/tsuquyomi'
 Plug 'jparise/vim-graphql'
 Plug 'uarun/vim-protobuf'
 Plug 'jjo/vim-cue'
+"
 "Plug 'ngmy/vim-rubocop'
 Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -111,6 +112,15 @@ let g:go_gopls_deep_completion = 1
 let g:ftplugin_sql_omni_key = '<C-p>'
 let NERDTreeQuitOnOpen=1
 let g:gundo_prefer_python3=1
+let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 0
+let g:ruby_operators = 1
+let g:ruby_pseudo_oeprators = 1
+let g:ruby_space_errors = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
 
 let g:ale_fixers = {
             \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -125,18 +135,6 @@ let g:ale_linters = {
             \ 'ruby': ['standardrb'],
             \}
 let g:ale_fix_on_save = 1
-
-let g:ruby_indent_assignment_style = 'variable'
-let g:ruby_indent_hanging_elements = 0
-let g:ruby_operators = 1
-let g:ruby_pseudo_oeprators = 1
-let g:ruby_space_errors = 1
-" let g:ruby_fold = 1
-let g:rubycomplete_classes_in_global = 1
-
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
 
 call ale#linter#Define('typescriptreact', {
 \   'name': 'tsserver',
@@ -201,6 +199,9 @@ nmap <silent> gt <Plug>(coc-type-definition)
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>rf <Plug>(coc-refactor)
+
+" vim-surround
+nmap <leader>q ysiw
 
 " Snippets
 au FileType go nmap <leader>ge <Plug>(go-iferr)
