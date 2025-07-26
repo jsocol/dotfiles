@@ -54,6 +54,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'jiangmiao/auto-pairs'
 "Plug 'Townk/vim-autoclose'
 
 " Colorschemes
@@ -96,6 +99,8 @@ let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "gopls"
 let g:go_gopls_gofumpt=1
 let g:go_auto_type_info = 1
+let g:go_gopls_complete_unimported = 1
+let g:go_gopls_deep_completion = 1
 let g:ftplugin_sql_omni_key = '<C-p>'
 let NERDTreeQuitOnOpen=1
 let g:gundo_prefer_python3=1
