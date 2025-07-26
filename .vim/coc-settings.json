@@ -1,0 +1,21 @@
+{
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    },
+    "terraform": {
+      "command": "terraform-lsp",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {}
+    }
+  },
+  "html.format.templating": true,
+  "go.goplsOptions": {
+      "gofumpt": true
+  },
+  "coc.source.ultisnips.enable": true,
+  "coc.source.ultisnips.priority": 100
+}
