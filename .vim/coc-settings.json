@@ -1,5 +1,32 @@
 {
+  "diagnostic.displayByAle": true,
+  "eslint.autoFixOnSave": true,
+  "workspace.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
+  "go.goplsOptions": {
+      "gofumpt": true
+  },
+  "html.format.templating": true,
+  "yaml.format.printWidth": 120,
+  "yaml.format.proseWrap": "always",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "basedpyright.analysis.useLibraryCodeForTypes": true,
+  "basedpyright.analysis.autoImportCompletions": true,
+  "coc.source.ultisnips.enable": true,
+  "coc.source.ultisnips.priority": 100,
   "languageserver": {
+    "cue": {
+      "command": "cue",
+      "args": ["lsp", "serve"],
+      "filetypes": ["cue"],
+      "maxRestartCount": 3,
+      "rootPatterns": ["cue.mod"]
+    },
     "dockerfile": {
       "command": "docker-langserver",
       "filetypes": ["dockerfile"],
@@ -10,12 +37,47 @@
       "args": ["serve"],
       "filetypes": ["terraform", "tf"],
       "initializationOptions": {}
+    },
+    "ruby-lsp": {
+      "command": "ruby-lsp",
+      "initializationOptions": {
+        "enabledFeatures": {
+          "codeActions": true,
+          "codeLens": true,
+          "completion": true,
+          "definition": true,
+          "diagnostics": true,
+          "documentHighlights": true,
+          "documentLink": true,
+          "documentSymbols": true,
+          "foldingRanges": true,
+          "formatting": true,
+          "hover": true,
+          "inlayHint": true,
+          "onTypeFormatting": true,
+          "selectionRanges": true,
+          "semanticHighlighting": true,
+          "signatureHelp": true,
+          "typeHierarchy": true,
+          "workspaceSymbol": true
+        }
+      },
+      "filetypes": ["ruby"],
+      "featuresConfiguration": {
+        "inlayHint": {
+          "implicitHashValue": true,
+          "implicitRescue": true
+        }
+      },
+      "indexing": {
+        "excludedPatterns": [],
+        "includedPatterns": [],
+        "excludedGems": [],
+        "excludedMagicComments": ["compiled:true"]
+      },
+      "formatter": "auto",
+      "linters": ["standardrb"],
+      "experimentalFeaturesEnabled": false
     }
-  },
-  "html.format.templating": true,
-  "go.goplsOptions": {
-      "gofumpt": true
-  },
-  "coc.source.ultisnips.enable": true,
-  "coc.source.ultisnips.priority": 100
+  }
 }
