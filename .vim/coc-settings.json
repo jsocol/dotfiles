@@ -1,45 +1,62 @@
 {
+  "basedpyright.analysis.autoImportCompletions": true,
+  "basedpyright.analysis.useLibraryCodeForTypes": true,
+  "coc.source.ultisnips.enable": true,
+  "coc.source.ultisnips.priority": 100,
   "diagnostic.displayByAle": true,
-  "eslint.autoFixOnSave": true,
-  "workspace.rootPatterns": [
-    ".git",
-    ".hg",
-    ".projections.json"
-  ],
-  "go.goplsOptions": {
-      "gofumpt": true
-  },
-  "html.format.templating": true,
-  "yaml.format.printWidth": 120,
-  "yaml.format.proseWrap": "always",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "basedpyright.analysis.useLibraryCodeForTypes": true,
-  "basedpyright.analysis.autoImportCompletions": true,
-  "coc.source.ultisnips.enable": true,
-  "coc.source.ultisnips.priority": 100,
+  "eslint.autoFixOnSave": true,
+  "go.goplsOptions": {
+    "gofumpt": true
+  },
+  "html.format.templating": true,
   "languageserver": {
     "cue": {
+      "args": [
+        "lsp",
+        "serve"
+      ],
       "command": "cue",
-      "args": ["lsp", "serve"],
-      "filetypes": ["cue"],
+      "filetypes": [
+        "cue"
+      ],
       "maxRestartCount": 3,
-      "rootPatterns": ["cue.mod"]
+      "rootPatterns": [
+        "cue.mod"
+      ]
     },
     "dockerfile": {
+      "args": [
+        "--stdio"
+      ],
       "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    },
-    "terraform": {
-      "command": "terraform-lsp",
-      "args": ["serve"],
-      "filetypes": ["terraform", "tf"],
-      "initializationOptions": {}
+      "filetypes": [
+        "dockerfile"
+      ]
     },
     "ruby-lsp": {
       "command": "ruby-lsp",
+      "experimentalFeaturesEnabled": false,
+      "featuresConfiguration": {
+        "inlayHint": {
+          "implicitHashValue": true,
+          "implicitRescue": true
+        }
+      },
+      "filetypes": [
+        "ruby"
+      ],
+      "formatter": "auto",
+      "indexing": {
+        "excludedGems": [],
+        "excludedMagicComments": [
+          "compiled:true"
+        ],
+        "excludedPatterns": [],
+        "includedPatterns": []
+      },
       "initializationOptions": {
         "enabledFeatures": {
           "codeActions": true,
@@ -62,22 +79,27 @@
           "workspaceSymbol": true
         }
       },
-      "filetypes": ["ruby"],
-      "featuresConfiguration": {
-        "inlayHint": {
-          "implicitHashValue": true,
-          "implicitRescue": true
-        }
-      },
-      "indexing": {
-        "excludedPatterns": [],
-        "includedPatterns": [],
-        "excludedGems": [],
-        "excludedMagicComments": ["compiled:true"]
-      },
-      "formatter": "auto",
-      "linters": ["standardrb"],
-      "experimentalFeaturesEnabled": false
+      "linters": [
+        "standardrb"
+      ]
+    },
+    "terraform": {
+      "args": [
+        "serve"
+      ],
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {}
     }
-  }
+  },
+  "workspace.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json"
+  ],
+  "yaml.format.printWidth": 120,
+  "yaml.format.proseWrap": "always"
 }
