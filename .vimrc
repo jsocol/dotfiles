@@ -238,4 +238,6 @@ nmap <leader>q ysiw
 nmap <leader>rq ds
 nmap <leader>cq cs
 
+au FileType go nmap <leader>ge <Plug>(go-iferr)
+
 let @h = "yypVr"

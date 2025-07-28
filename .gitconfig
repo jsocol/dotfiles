@@ -1,3 +1,5 @@
+[column]
+    ui = auto
 [color]
     diff = auto
     status = auto
@@ -20,8 +22,8 @@
     mg = merge --no-ff --no-edit
     p = log -1 -p
     st = status
-    u = checkout --
     sw = switch
+    u = checkout --
 [user]
 	name = James Socol
 	email = me@jamessocol.com
@@ -43,3 +45,18 @@
 	sort = -committerdate
 [tag]
 	sort = -version:refname
+[commit]
+	gpgsign = true
+	verbose = true
+[help]
+	autocorrect = prompt
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[merge]
+	conflictStyle = zdiff3
